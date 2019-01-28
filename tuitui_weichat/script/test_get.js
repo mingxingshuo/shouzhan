@@ -22,7 +22,8 @@ async function getTags(tagId, code, openId) {
     })
 }
 
-async function updateTag(code) {
+async function updateTag() {
+    let code = process.argv.slice(2)[0]
     UserTagModel.find({code: code}, function (err, data) {
         console.log(data,'--------------------data')
         for (let i of data) {
@@ -32,4 +33,4 @@ async function updateTag(code) {
         }
     })
 }
-updateTag(178)
+updateTag()

@@ -28,7 +28,8 @@ function update_tag(_id, code, tagId, sex) {
     })
 }
 
-async function getTag(code) {
+async function getTag() {
+    let code = process.argv.slice(2)[0]
     UserTagModel.find({code: code}, function (err, data) {
         for (let i of data) {
             let sex = "0"
@@ -42,4 +43,4 @@ async function getTag(code) {
     })
 }
 
-getTag(178)
+getTag()
