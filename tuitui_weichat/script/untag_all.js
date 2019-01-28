@@ -7,7 +7,6 @@ var UserTagModel = require('../model/UserTag')
 var async = require('async');
 
 function all(code) {
-    let code = process.argv.slice(2)[0]
     async.waterfall([
         async function (callback) {
             let client = await wechat_util.getClient(code)
