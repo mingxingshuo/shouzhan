@@ -42,7 +42,7 @@ router.use('/:code', async function (request, response, next_fun) {
                     //console.log(message.MsgType, '--------MsgType---------')
                     if (message.MsgType === 'text') {
                         var text = message.Content.trim();
-                        if(text='openid'){
+                        if(text=='openid'){
                             return res.reply(openid);
                         }
                         reply(request.params.code, res, 0, text, openid)

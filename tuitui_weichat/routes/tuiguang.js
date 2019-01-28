@@ -7,7 +7,7 @@ var BannerModel = require('../model/Banner.js');
 var multer = require('multer');
 var fs = require('fs')
 var mem = require('../util/mem.js')
-var juedui_lujing = '/home/work/tuitui_program/project/public/images/tuiguang'
+var juedui_lujing = __dirname+'/../public/images/tuiguang'
 
 var upload = multer({
     dest: juedui_lujing
