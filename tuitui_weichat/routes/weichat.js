@@ -120,7 +120,7 @@ async function subscribe(openid, config, message, res) {
                         //console.log(config,openid,doc)
                         var client = await wechat_util.getClient(config.code);
                         client.sendText(openid, doc.content, function (error, result) {
-                              console.log(error,result);
+                              //console.log(error,result);
                         })
                      }    
                 })(config,openid,doc), 200)
@@ -200,7 +200,7 @@ async function getUserInfo(openid, config, message, request, w_req, w_res, next)
             if (message.Event === 'subscribe') {
                 user.subscribe_time = Date.now();
                 user.subscribe_flag = true;
-                console.log(user, '--------------user')
+                //console.log(user, '--------------user')
                 user.save(function () {
                 })
             } else if (message.Event === 'unsubscribe') {
@@ -217,7 +217,7 @@ async function getUserInfo(openid, config, message, request, w_req, w_res, next)
 async function reply(code, res, type, param, openid) {
     var reply = await mem.get("reply_" + code + "_" + param);
     // var reply = ''
-    console.log(reply, '--------reply---------1')
+    //console.log(reply, '--------reply---------1')
     if (!reply) {
         console.log(code, type, param, reply, '--------reply---------a')
         if (type == 0) {
@@ -229,7 +229,7 @@ async function reply(code, res, type, param, openid) {
         }else if (type == 3) {
             reply = await ReplyModel.find({code: code, type: type})
         }
-        console.log(reply, '--------reply---------2')
+        //console.log(reply, '--------reply---------2')
         if (reply[0] && reply[0].replyType == 0) {
             reply = {type: 0, msg: reply[0].msgId}
         } else if (reply[0] && reply[0].replyType == 1) {
@@ -240,32 +240,32 @@ async function reply(code, res, type, param, openid) {
         await mem.set("reply_" + code + "_" + param, reply, 30)
     }
 
-    console.log(reply, '--------lllreply---------')
+    //console.log(reply, '--------lllreply---------')
     if (reply.type == 1) {
         return res.reply(reply.msg)
     } else {
         var content = await mem.get("msg_" + reply.msg);
         if (!content) {
             content = await MsgModel.find({msgId: reply.msg})
-            console.log(content, '------------------------content')
+            //console.log(content, '------------------------content')
             if (content) {
                 content = content[0]
-                console.log(reply.msg, content, '------------------------cm')
+                //console.log(reply.msg, content, '------------------------cm')
                 await mem.set("msg_" + reply.msg, content, 30);
-                console.log(content, '--------content1---------')
+                //console.log(content, '--------content1---------')
                 replyMsg(res, content, code, openid)
             } else {
                 return res.replay('')
             }
         } else {
-            console.log(content, '--------content2---------')
+            //console.log(content, '--------content2---------')
             replyMsg(res, content, code, openid)
         }
     }
 }
 
 async function replyMsg(res, content, code, openid) {
-    console.log(content, '--------content3---------')
+    //console.log(content, '--------content3---------')
     if (content.type == 0) {
         return res.reply(content.description)
     } else if (content.type == 1) {
