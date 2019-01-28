@@ -6,6 +6,7 @@ var user = require('../script/get_users')
 var exec = require('child_process').exec;
 var request = require('request');
 var UserconfModel = require('../model/Userconf');
+var getUser = require('../script/get_users')
 
 router.get('/', async(req, res, next) => {
     let doc = await ConfigModel.find()
@@ -88,8 +89,9 @@ router.get('/jieguan', async(req, res, next) => {
         // exec(cmdStr, function (err, stdout, stderr) {
         //
         // })
-        request('http://localhost:3002/get_users?code=' + code, function (err, response) {
-        })
+        // request('http://localhost:3002/get_users?code=' + code, function (err, response) {
+        // })
+        getUser.getUserByCode(code)
         res.send({success: '设置接管成功'})
     } else {
         res.send({success: '已接管'})

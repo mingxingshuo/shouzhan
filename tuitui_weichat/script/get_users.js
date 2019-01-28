@@ -6,8 +6,7 @@ var mem = require('../util/mem.js');
 var async = require('async');
 var UserTagModel = require('../model/UserTag')
 
-async function getUserByCode() {
-    let code = process.argv.slice(2)[0]
+async function getUserByCode(code) {
     if (code) {
         await mem.set('access_token' + code, '', 10)
         let client = await wechat_util.getClient(code)
@@ -18,6 +17,7 @@ async function getUserByCode() {
                         if (res) {
                             console.log(res, '------------------res')
                             for (let i of res.tags) {
+                                console.log(i,'--------------------i')
                                 if (i.name == "明星说男" || i.name == "明星说女" || i.name == "明星说未知") {
                                     client.deleteTag(i.id, function (error, res) {
                                         console.log(res)
@@ -85,7 +85,6 @@ async function get_users(code, openid, callback) {
                 console.log('-------getFollowers error-------')
                 console.log(err)
             }
-            // console.log(result);
             if (result && result.data && result.data.openid) {
                 var openids = [];
                 for (var index in result.data.openid) {
@@ -116,7 +115,6 @@ async function get_users(code, openid, callback) {
                 console.log('-------getFollowers error-------')
                 console.log(err)
             }
-            // console.log(result);
             if (result && result.data && result.data.openid) {
                 var openids = [];
                 for (var index in result.data.openid) {
@@ -183,6 +181,9 @@ function update_user(_id, code, next, back) {
                                     nickname: info.nickname,
                                     headimgurl: info.headimgurl,
                                     sex: info.sex.toString(),
+                                    country: info.country,
+                                    city: info.city,
+                                    province: info.province,
                                     sign: 1
                                 })
                             }
@@ -249,5 +250,4 @@ function update_tag(_id, code, tagId, sex, next, back) {
     })
 }
 
-getUserByCode()
-// module.exports.getUserByCode = getUserByCode
+module.exports.getUserByCode = getUserByCode;
