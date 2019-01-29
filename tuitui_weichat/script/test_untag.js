@@ -1,6 +1,7 @@
 var wechat_util = require('../util/get_weichat_client.js')
 var UserTagModel = require('../model/UserTag')
 var SubOpenidTagModel = require('../model/SubOpenidTag');
+var ConfigModel = require('../model/Config');
 
 function update_tag(_id, code, tagId, sex) {
     SubOpenidTagModel.fetchTag(_id, code, sex, async function (error, users) {
