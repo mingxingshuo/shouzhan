@@ -13,17 +13,28 @@ function update_tag(_id, code, tagId, sex) {
             console.log(user_arr, '-------------------user null')
             return
         } else {
-            client.membersBatchtagging(tagId, user_arr, function (error, res) {
+            client.membersBatchtagging(tagId, user_arr, async function (error, res) {
                 console.log(res)
+                if(res.errcode == 45009){
+                    let client = await wechat_util.getClient(code)
+                    let conf = await ConfigModel.findOne({code: code})
+                    let appid = conf.appid
+                    client.clearQuota(appid, function (err, data) {
+                        console.log(err, data, '------------------------------')
+                        console.log('clearQuota end')
+                        update_tag(users[0]._id, code, tagId, sex)
+                    })
+                }else{
+                    if (users.length == 50) {
+                        setTimeout(function() {
+                            update_tag(users[49]._id, code, tagId, sex)
+                        },200)
+                    } else {
+                        console.log('.........end...........')
+                        return
+                    }
+                }
             })
-            if (users.length == 50) {
-                setTimeout(function() {
-                    update_tag(users[49]._id, code, tagId, sex)
-                },200)
-            } else {
-                console.log('.........end...........')
-                return
-            }
         }
     })
 }

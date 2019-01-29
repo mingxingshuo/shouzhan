@@ -152,7 +152,7 @@ function update_tag(_id, code, tagId, sex) {
     })
 }
 
-var arr = []
+var arr = [2,5,6,8,9,10,11]
 for(let i of arr){
     all(i)
 }
