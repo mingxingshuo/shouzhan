@@ -39,9 +39,17 @@ async function get_tag(code){
 async function get_test(code){
 	var client = await wechat_util.getClient(code)
 	client.getFollowers(function(err,res){
+		console.log('--------code----------')
+		console.log(code)
 		console.log('------------err-------------')
 		console.log(err)
 		console.log('------------res-------------')
 		console.log(res)
 	})
 }
+
+get_test(2)
+
+setTimeout(function(){get_test(5)},500)
+setTimeout(function(){get_test(10)},1000)
+setTimeout(function(){get_test(11)},1500)
