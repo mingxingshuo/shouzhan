@@ -17,7 +17,6 @@ function update_tag(_id, code, tagId, sex) {
             client.membersBatchtagging(tagId, user_arr, async function (error, res) {
                 console.log(res)
                 if(res.errcode == 45009){
-                    let client = await wechat_util.getClient(code)
                     let conf = await ConfigModel.findOne({code: code})
                     let appid = conf.appid
                     client.clearQuota(appid, function (err, data) {
