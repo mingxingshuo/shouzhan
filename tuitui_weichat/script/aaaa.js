@@ -9,6 +9,7 @@ async function a() {
     //     console.log(res,'----------------')
     // })
     client.createTag("明星说女", async function (err, data) {
+        console.log(err,data,'----------------------')
         await UserTagModel.create({id: data.tag.id, name: "女", code: code})
     })
 }
