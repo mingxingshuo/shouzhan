@@ -15,12 +15,10 @@ async function getUserByCode(code) {
                 UserTagModel.remove({code: code}, function (err, doc) {
                     client.getTags(function (err, res) {
                         if (res) {
-                            console.log(res, '------------------res')
                             for (let i of res.tags) {
-                                console.log(i, '--------------------i')
                                 if (i.name == "明星说男" || i.name == "明星说女" || i.name == "明星说未知") {
                                     client.deleteTag(i.id, function (error, res) {
-                                        console.log(res)
+                                        // console.log(res)
                                     })
                                 }
                             }
@@ -46,7 +44,6 @@ async function getUserByCode(code) {
                 })
             }, function (callback) {
                 client.createTag("明星说未知", async function (err, data) {
-                    console.log(data, '---------------------data')
                     await UserTagModel.create({id: data.tag.id, name: "未知", code: code})
                     get_tag(null, code, data.tag.id, '0', function () {
                         callback(null)
@@ -77,7 +74,6 @@ async function getUserByCode(code) {
 }
 
 async function get_users(code, openid, callback) {
-    console.log('code : ' + code + ' , openid : ' + openid);
     let client = await wechat_util.getClient(code)
     if (openid) {
         client.getFollowers(openid, async function (err, result) {
@@ -239,7 +235,6 @@ function update_tag(_id, code, tagId, sex, next, back) {
             next(null, null, null, null, back)
         } else {
             client.membersBatchtagging(tagId, user_arr, async function (error, res) {
-                console.log(res)
                 if(res.errcode == 45009){
                     let conf = await ConfigModel.findOne({code: code})
                     let appid = conf.appid
