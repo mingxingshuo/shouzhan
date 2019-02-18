@@ -5,7 +5,7 @@ var wechat_util = require('../util/get_weichat_client.js')
 async function a(code) {
     // await ConfigModel.update({code: code}, {status: -1})
 
-    // let client = await wechat_util.getClient(code)
+    let client = await wechat_util.getClient(code)
     // client.getTags(function (err,data) {
     //     console.log(data,'-----------------aaa')
     // })
