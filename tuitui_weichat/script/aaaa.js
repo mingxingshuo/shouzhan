@@ -1,6 +1,6 @@
 var ConfigModel = require('../model/Config');
 var UserTagModel = require('../model/UserTag')
-var UserconfModel = require('../model/Userconf1')
+var UserconfModel = require('../model/Userconf')
 var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client.js')
 
