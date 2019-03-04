@@ -8,7 +8,7 @@ async function a(code) {
     let client = await wechat_util.getClient(code)
     console.log(client,'-------------------client')
     client.getTags(function (err, data) {
-        console.log(data, '-----------------', code)
+        console.log(err,data, '-----------------', code)
     })
     // client.createTag("明星说女", async function (err, data) {
     //     console.log(data, '-----------------data')
