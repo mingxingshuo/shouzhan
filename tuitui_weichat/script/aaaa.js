@@ -1,6 +1,7 @@
 var ConfigModel = require('../model/Config');
 var UserTagModel = require('../model/UserTag')
 var UserconfModel = require('../model/Userconf1')
+var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client.js')
 
 async function a(code) {
@@ -11,7 +12,8 @@ async function a(code) {
     //     console.log(err,data, '-----------------', code)
     // })
     let count = await UserconfModel.count({code:code})
-    console.log(count,'----------------count')
+    let count1 = await OpenidModel.count({code:code})
+    console.log(count,count1,'----------------count')
 
     // client.createTag("明星说女", async function (err, data) {
     //     console.log(data, '-----------------data')
