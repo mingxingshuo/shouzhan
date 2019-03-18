@@ -1,12 +1,7 @@
-var express = require('express');
-var router = express.Router();
 var UserconfModel = require('../model/Userconf_shouzhan');
-var ConfigModel = require('../model/Config_shouzhan');
 var OpenidModel = require('../model/Openid_shouzhan');
 var wechat_util = require('../util/get_weichat_client.js')
-var mem = require('../util/mem.js');
 var async = require('async');
-var UserTagModel = require('../model/UserTag_shouzhan')
 
 async function get_users(code, openid, callback) {
     console.log('code : ' + code + ' , openid : ' + openid);
