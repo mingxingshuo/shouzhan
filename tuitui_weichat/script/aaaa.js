@@ -24,7 +24,7 @@ async function a(code) {
     //     })
     // })
 }
-a(41)
+a(40)
 
 // async function b(code) {
 //     await mem.set('access_token' + code, '', 10)
