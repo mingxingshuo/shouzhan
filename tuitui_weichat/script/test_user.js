@@ -1,5 +1,5 @@
-var UserconfModel = require('../model/Userconf_shouzhan');
-var OpenidModel = require('../model/Openid_shouzhan');
+var UserconfModel = require('../model/Userconf');
+var OpenidModel = require('../model/Openid');
 var wechat_util = require('../util/get_weichat_client.js')
 var async = require('async');
 
