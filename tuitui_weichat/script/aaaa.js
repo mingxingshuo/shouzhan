@@ -24,4 +24,4 @@ async function a(code) {
     //     })
     // })
 }
-a(36)
+a(34)
