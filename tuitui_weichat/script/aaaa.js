@@ -26,6 +26,8 @@ async function a(code) {
 }
 a(34)
 a(36)
+a(40)
+a(41)
 a(45)
 
 
