@@ -5,7 +5,7 @@ var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client.js')
 
 async function a(code) {
-    await ConfigModel.update({code: code}, {status: -2})
+    // await ConfigModel.update({code: code}, {status: -2})
 
     let client = await wechat_util.getClient(code)
     client.getTags(function (err, data) {
@@ -24,9 +24,9 @@ async function a(code) {
     //     })
     // })
 }
-// a(34)
+a(34)
 a(44)
-// a(45)
+a(45)
 
 
 // async function b(code) {
