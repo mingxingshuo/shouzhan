@@ -24,16 +24,7 @@ async function a(code) {
     //     })
     // })
 }
-a(34)
-a(36)
-a(37)
-a(38)
-a(39)
-a(40)
-a(41)
-a(42)
 a(44)
-a(45)
 
 
 // async function b(code) {
