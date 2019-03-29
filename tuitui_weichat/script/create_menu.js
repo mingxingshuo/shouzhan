@@ -1,6 +1,7 @@
 var wechat_util = require('../util/get_weichat_client.js')
 
 
+
 async function get_tag(code){
 	var client = await wechat_util.getClient(code)
 	/*client.createTag("明星说测试",async function (err, data){
@@ -48,4 +49,13 @@ async function get_test(code){
 	})
 }
 
-setTimeout(function(){get_test(44)},500)
+async function getMaterial(code) {
+	var client = await wechat_util.getClient(code)
+    await client.getMaterials('news', 0, 20, async (err, result, res) => {
+        console.log('-------Material--------')
+        console.log(result)
+    });
+}
+
+getMaterial(34)
+getMaterial(37)
