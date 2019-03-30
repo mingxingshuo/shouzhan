@@ -14,11 +14,11 @@ var QRcodeModel = require('../model/QRcode');
 
 router.use('/:code', async function (request, response, next_fun) {
     //console.log(request.query)
-    var config = await mem.get("configure_" + request.params.code);
+    var config = await mem.get("shouzhan_configure_" + request.params.code);
     if (!config) {
         config = await ConfigModel.findOne({code: request.params.code})
         if (config) {
-            await mem.set("configure_" + request.params.code, config, 30)
+            await mem.set("shouzhan_configure_" + request.params.code, config, 30)
         }
     }
     if (!request.query.openid) {
@@ -140,11 +140,11 @@ async function validate(req, res) {
     var nonce = req.query.nonce;
     var echostr = req.query.echostr;
     //1. 将token、timestamp、nonce三个参数进行字典序排序
-    var config = await mem.get("configure_" + req.params.code);
+    var config = await mem.get("shouzhan_configure_" + req.params.code);
     if (!config) {
         config = await ConfigModel.findOne({code: req.params.code})
         //console.log(config, '--------------------------config')
-        await mem.set("configure_" + req.params.code, config, 30)
+        await mem.set("shouzhan_configure_" + req.params.code, config, 30)
     }
     var token = config.token;
 

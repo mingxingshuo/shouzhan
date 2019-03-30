@@ -36,4 +36,5 @@ async function getMaterial(code, client, type, offset) {
     });
 }
 
+module.exports.getMaterial = getMaterial;
 module.exports.get_aterials = get_aterials;
