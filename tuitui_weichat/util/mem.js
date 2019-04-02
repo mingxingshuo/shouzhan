@@ -33,7 +33,7 @@ module.exports.bindContent =  function (openid) {
 
 module.exports.get = function(key){
     return new Promise((resolve, reject)=>{
-        memcached.get(key,function(err,value){
+        memcached.get('shouzhan_'+key,function(err,value){
             resolve(value);
         });
     });
@@ -41,7 +41,7 @@ module.exports.get = function(key){
 
 module.exports.set = function(key,value,time){
     return new Promise((resolve, reject)=>{
-        memcached.set(key,value,time,function(err,value){
+        memcached.set('shouzhan_'+key,value,time,function(err,value){
             resolve(value);
         });
     });
