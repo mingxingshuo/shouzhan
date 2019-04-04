@@ -8,32 +8,32 @@ async function get_tag(code){
 		console.log(err)
 		console.log(data)
 	})*/
-	/*client.getTags(function(err,res){
+	client.getTags(function(err,res){
 		console.log('------------err-------------')
 		console.log(err)
 		console.log('------------res-------------')
 		console.log(res)
-	})*/
+	})
 
 	/*client.membersBatchtagging(103, ['o2JXO56130aGQSfHcfIIDcOVkQNE','o2JXO55e9ojX_vax-6aHI6tQU29I	'], function (error, res) {
         console.log(res)
     })*/
 
     //var media_id ="KtjogwJlegSk9wzmQ9jiG7XrFjczdfiKJsVxxSko-u0";
-   var opts ={ mpnews: { media_id: 'KtjogwJlegSk9wzmQ9jiG14bdlSC5-DLYugKXr02FiA' },
+  /* var opts ={ mpnews: { media_id: 'KtjogwJlegSk9wzmQ9jiG14bdlSC5-DLYugKXr02FiA' },
    msgtype: 'mpnews' };
-   /*var opts = {
+   var opts = {
 	   	"text":{
 	      "content":"测试文本"
 	   },
 	    "msgtype":"text"
-   }*/
+   }
     client.massSend(opts, 103, function (err, res) {
             console.log('------------err--------');
             console.log(err);
             console.log('------------res--------');
             console.log(res);
-        })
+        })*/
 }
 
 
@@ -57,5 +57,4 @@ async function getMaterial(code) {
     });
 }
 
-getMaterial(34)
-getMaterial(37)
+get_tag(44)
