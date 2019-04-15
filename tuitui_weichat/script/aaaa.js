@@ -5,13 +5,13 @@ var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client.js')
 
 async function a() {
-    let code = process.argv.slice(2)[0]
-    await ConfigModel.update({code: code}, {status: -2})
+    // let code = process.argv.slice(2)[0]
+    // await ConfigModel.update({code: code}, {status: -2})
 
-    // let client = await wechat_util.getClient(code)
-    // client.getTags(function (err, data) {
-    //     console.log(err,data, '-----------------', code)
-    // })
+    let client = await wechat_util.getClient(code)
+    client.getTags(function (err, data) {
+        console.log(err,data, '-----------------', code)
+    })
 
     // let count = await UserconfModel.count({code:code})
     // let count1 = await OpenidModel.count({code:code})
