@@ -6,10 +6,10 @@ var memcached = new Memcached('127.0.0.1:11211');
 var mem = require('../util/mem.js');
 
 async function getClient(code) {
-    var config = await mem.get("configure_" + code);
+    var config = await mem.get("shouzhan_configure_" + code);
     if (!config) {
         config = await ConfigModel.findOne({code: code})
-        await mem.set("configure_" + code, config, 30 * 24 * 3600)
+        await mem.set("shouzhan_configure_" + code, config, 30 * 24 * 3600)
     }
     // var config=weichat_conf[code];
     var api = new WechatAPI(config.appid, config.appsecret,
