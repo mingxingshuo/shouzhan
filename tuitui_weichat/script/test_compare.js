@@ -19,7 +19,7 @@ function compare(id) {
             }
             var subArr = subSet(con_openids, tag_openids)
             // console.log(subArr)
-            // console.log(subArr.length)
+            console.log(subArr.length)
             var openids = [];
             for (var index in subArr) {
                 var openid = subArr[index];
