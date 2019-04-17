@@ -8,12 +8,21 @@ async function a() {
     let code = process.argv.slice(2)[0]
     // await ConfigModel.update({code: code}, {status: -2})
 
-    let client = await wechat_util.getClient(code)
-    client.getTags(function (err, data) {
-        console.log(err,data, '-----------------', code)
+    // let client = await wechat_util.getClient(code)
+    // client.getTags(function (err, data) {
+    //     console.log(err,data, '-----------------', code)
+    // })
+    client.createTag("明星说女", async function (err, data) {
+        await UserTagModel.create({id: data.tag.id, name: "女", code: code})
+        // get_tag(null, code, data.tag.id, '2', function () {
+        //     callback(null)
+        // })
     })
 
-    // let count = await UserconfModel.count({code:code})
+    // let start = Date.now()
+    // UserconfModel.fetch_userSign(null, code, function (err, data) {
+    //     console.log('----------------',(Date.now()-start)/1000)
+    // })
     // let count1 = await OpenidModel.count({code:code})
     // console.log(count,count1,'----------------count')
 
