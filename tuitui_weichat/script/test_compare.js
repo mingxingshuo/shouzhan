@@ -18,8 +18,8 @@ function compare(id) {
                 tag_openids.push(tag_ois[index].openid)
             }
             var subArr = subSet(con_openids, tag_openids)
-            console.log(subArr)
-            console.log(subArr.length)
+            // console.log(subArr)
+            // console.log(subArr.length)
             var openids = [];
             for (var index in subArr) {
                 var openid = subArr[index];
@@ -33,7 +33,7 @@ function compare(id) {
                 }
             }
             if (openids.length) {
-                console.log(openids)
+                // console.log(openids)
                 // return
                 SubOpenidTagModel.insertMany(openids, function (err, docs) {
                     obj_users = {}
