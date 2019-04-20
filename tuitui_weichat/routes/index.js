@@ -3,6 +3,7 @@ var router = express.Router();
 var handler = require('../util/db.js')
 var Page = require('../model/page.js')
 var Links = require('../model/links.js')
+var weichat_util = require('../util/get_weichat_client.js')
 
 router.get('/add_page', function(req, res, next) {
 	let selector = {pagename: req.query.pagename}
@@ -60,6 +61,17 @@ router.get('delete_page', function(req, res, next) {
 			})
 		}
 	})
+})
+
+router.get("/state", async (req, res, next) => {
+  let client = await weichat_util.getClient(req.query.code)
+  client.getMassMessageStatus(req.query.msg_id, function(err, result){
+    if(err) {
+      return
+    } else {
+      res.send({data: result})
+    }
+  })
 })
 
 
