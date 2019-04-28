@@ -9,15 +9,15 @@ async function a() {
     let client = await wechat_util.getClient(code)
     // await ConfigModel.update({code: code}, {status: 1})
 
-    client.getTags(function (err, data) {
-        console.log(err,data, '-----------------', code)
-    })
-    // client.createTag("明星说女", async function (err, data) {
-    //     await UserTagModel.create({id: data.tag.id, name: "女", code: code})
-    //     // get_tag(null, code, data.tag.id, '2', function () {
-    //     //     callback(null)
-    //     // })
+    // client.getTags(function (err, data) {
+    //     console.log(err,data, '-----------------', code)
     // })
+    client.createTag("明星说女", async function (err, data) {
+        await UserTagModel.create({id: data.tag.id, name: "女", code: code})
+        // get_tag(null, code, data.tag.id, '2', function () {
+        //     callback(null)
+        // })
+    })
 
     // let start = Date.now()
     // UserconfModel.fetch_userSign(null, code, function (err, data) {
