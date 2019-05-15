@@ -52,7 +52,7 @@ router.get('/get_code', async function(req,res, next){
     res.send({codes:codes})
 })
 
-router.get('/detail/:code',function(req,res,next){
+router.get('/media/:code',function(req,res,next){
 	var code = req.params.code;
 	mem.get('statistics_detail_'+code).then(async function(value){
 		if(value){
