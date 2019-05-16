@@ -9,6 +9,10 @@ async function a() {
     let client = await wechat_util.getClient(code)
     // await ConfigModel.update({code: code}, {status: -2})
 
+    let openid = await OpenidModel.count({code:code})
+    console.log(openid,'--------------openid')
+    let user = await UserconfModel.count({code:code})
+    console.log(user,'-----------------user')
     client.getTags(function (err, data) {
         console.log(err,data, '-----------------', code)
     })
