@@ -14,3 +14,5 @@ async function a() {
         console.log(err,data, '-----------------', code)
     })
 }
+
+a()
