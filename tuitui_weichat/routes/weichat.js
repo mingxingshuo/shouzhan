@@ -58,6 +58,10 @@ router.use('/:code', async function (request, response, next_fun) {
                             reply(request.params.code, res, 1, message.EventKey, openid)
                         } else if(message.Event.toLowerCase() == 'location'){
                             reply(request.params.code, res, 3, 'location', openid);
+                        }else if (message.Event.toUpperCase() == 'MASSSENDJOBFINISH') {
+                            console.log('-------群发消息事件 收到回调------')
+                            console.log(message)
+                            res.reply('');
                         }else{
                             res.reply('');
                         }
