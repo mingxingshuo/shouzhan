@@ -89,7 +89,7 @@ router.get('/jieguan', async(req, res, next) => {
         // exec(cmdStr, function (err, stdout, stderr) {
         //
         // })
-        request('http://localhost:3002/get_shouzhan?code=' + code, function (err, response) {
+        request('http://localhost:3004/get_shouzhan?code=' + code, function (err, response) {
         })
         // getUser.getUserByCode(code)
         res.send({success: '设置接管成功'})

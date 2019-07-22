@@ -3,16 +3,19 @@ var UserTagModel = require('../model/UserTag')
 var UserconfModel = require('../model/Userconf')
 var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client')
+var OpenidTagModel = require('../model/OpenidTag');
+var SubOpenidTagModel = require('../model/SubOpenidTag');
 
 async function a() {
     let code = process.argv.slice(2)[0]
-    let client = await wechat_util.getClient(code)
-    // await ConfigModel.update({code: code}, {status: -2})
+    // let client = await wechat_util.getClient(code)
+    await ConfigModel.update({code: code}, {status: -2})
 
-    // let openid = await OpenidModel.count({code:code})
-    // console.log(openid,'--------------openid')
-    // let user = await UserconfModel.count({code:code})
-    // console.log(user,'-----------------user')
+
+    // await OpenidModel.remove({code:code})
+    // await UserconfModel.remove({code:code})
+    // await OpenidTagModel.remove({code:code})
+    // await SubOpenidTagModel.remove({code:code})
     // client.getTags(function (err, data) {
     //     console.log(err,data, '-----------------', code)
     // })
@@ -32,13 +35,13 @@ async function a() {
     // let count1 = await OpenidModel.count({code:code})
     // console.log(count,count1,'----------------count')
 
-    client.createTag("明星说女", async function (err, data) {
-        console.log(data, '-----------------data')
-        await UserTagModel.create({id: data.tag.id, name: "女", code: code})
+    // client.createTag("明星说女", async function (err, data) {
+    //     console.log(data, '-----------------data')
+    //     await UserTagModel.create({id: data.tag.id, name: "女", code: code})
         // client.getTags(function (err, data1) {
         //     console.log(data1, '-----------------data1')
         // })
-    })
+    // })
 }
 a()
 
