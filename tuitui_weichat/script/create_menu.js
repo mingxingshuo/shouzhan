@@ -57,4 +57,16 @@ async function getMaterial(code) {
     });
 }
 
-get_tag(44)
+
+async function get_status(code,msg_id){
+	var client = await wechat_util.getClient(code)
+	client.getMassMessageStatus(msg_id,function(err, res){
+		console.log('------------err--------');
+            console.log(err);
+            console.log('------------res--------');
+            console.log(res);
+	})
+}
+
+
+get_status(78,3147483714)

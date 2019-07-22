@@ -3,14 +3,10 @@ var UserTagModel = require('../model/UserTag')
 var UserconfModel = require('../model/Userconf')
 var OpenidModel = require('../model/Openid')
 var wechat_util = require('../util/get_weichat_client')
-var OpenidTagModel = require('../model/OpenidTag');
-var SubOpenidTagModel = require('../model/SubOpenidTag');
 
 async function a() {
     let code = process.argv.slice(2)[0]
-    // let client = await wechat_util.getClient(code)
     await ConfigModel.update({code: code}, {status: -2})
-
 
     // await OpenidModel.remove({code:code})
     // await UserconfModel.remove({code:code})
