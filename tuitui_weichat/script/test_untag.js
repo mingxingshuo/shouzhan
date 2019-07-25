@@ -1,10 +1,10 @@
 var wechat_util = require('../util/get_weichat_client.js')
 var UserTagModel = require('../model/UserTag')
-var SubOpenidTagSexModel = require('../model/SubOpenidTagSexModel');
+var SubOpenidSexModel = require('../model/SubOpenidTagSex');
 var ConfigModel = require('../model/Config');
 
 function update_tag(_id, code, tagId, sex) {
-    SubOpenidTagModel.fetchTag(_id, code, sex, async function (error, users) {
+    SubOpenidSexModel.fetchTag(_id, code, sex, async function (error, users) {
         var user_arr = [];
         users.forEach(function (user) {
             user_arr.push(user.openid)
