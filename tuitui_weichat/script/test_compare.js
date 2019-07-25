@@ -1,4 +1,4 @@
-var UserconfModel = require('../model/Userconf');
+var OpenidModel = require('../model/Openid');
 var OpenidTagModel = require('../model/OpenidTag');
 var SubOpenidTagModel = require('../model/SubOpenidTag');
 
@@ -6,7 +6,7 @@ var obj_users = {}
 
 function compare(id) {
     let code = process.argv.slice(2)[0]
-    UserconfModel.fetch_userSign(id, code, function (err, data) {
+    OpenidModel.fetch(id, code, function (err, data) {
         var con_openids = []
         for (var index in data) {
             con_openids.push(data[index].openid);
