@@ -1,5 +1,5 @@
 var SubOpenidTagModel = require('../model/SubOpenidTag');
-var SubOpenidSexModel = require('../model/SubOpenidTagSex');
+var SubOpenidSexModel = require('../model/SubOpenidSex');
 var wechat_util = require('../util/get_weichat_client.js')
 var async = require('async');
 
