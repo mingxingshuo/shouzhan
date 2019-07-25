@@ -1,6 +1,6 @@
 var wechat_util = require('../util/get_weichat_client.js')
 var UserTagModel = require('../model/UserTag')
-var SubOpenidTagModel = require('../model/SubOpenidTag');
+var SubOpenidTagSexModel = require('../model/SubOpenidTagSexModel');
 var ConfigModel = require('../model/Config');
 
 function update_tag(_id, code, tagId, sex) {

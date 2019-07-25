@@ -1,5 +1,5 @@
-var UserconfModel = require('../model/Userconf');
 var SubOpenidTagModel = require('../model/SubOpenidTag');
+var SubOpenidTagSexModel = require('../model/SubOpenidTagSex');
 var wechat_util = require('../util/get_weichat_client.js')
 var async = require('async');
 
@@ -49,7 +49,7 @@ function update_user(_id, code, next, back) {
                             if (error) {
                                 console.log(error, '--------------error')
                             }
-                            UserconfModel.insertMany(userArr, async function (error, docs) {
+                            SubOpenidTagSexModel.insertMany(userArr, async function (error, docs) {
                                 if (error) {
                                     console.log('------insertMany error--------');
                                     console.log(error);
