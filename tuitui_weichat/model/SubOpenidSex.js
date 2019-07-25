@@ -10,7 +10,7 @@ var SubOpenidSexSchema = new Schema({
     sex: {type: String, default: "0"}
 });
 
-SubOpenidTagSchema.statics = {
+SubOpenidSexSchema.statics = {
     fetch(id, code, cb){
         if (id) {
             return this.find({_id: {$lt: id}, code: code}, ['openid'])
