@@ -6,7 +6,7 @@ var obj_users = {}
 
 function compare(id) {
     let code = process.argv.slice(2)[0]
-    OpenidModel.fetch(id, code, function (err, data) {
+    OpenidModel.fetch_openidSign(id, code, function (err, data) {
         var con_openids = []
         for (var index in data) {
             con_openids.push(data[index].openid);
