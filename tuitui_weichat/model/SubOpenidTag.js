@@ -14,12 +14,12 @@ SubOpenidTagSchema.statics = {
     fetch(id, code, cb){
         if (id) {
             return this.find({_id: {$lt: id}, code: code}, ['openid'])
-                .limit(50)
+                .limit(100)
                 .sort({'_id': -1})
                 .exec(cb);
         } else {
             return this.find({code: code}, ['openid'])
-                .limit(50)
+                .limit(100)
                 .sort({'_id': -1})
                 .exec(cb);
         }
